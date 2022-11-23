@@ -6,16 +6,16 @@ import java.util.Arrays;
 public class Budget {
 
     public int solution(int[] d, int budget) {
-        Arrays.sort(d);
         int answer = 0;
+        int sum = 0;
+        Arrays.sort(d);
 
         for (int amount : d) {
-            budget -= amount;
+            sum += amount;
 
-            if (budget < 0) {
+            if (sum > budget) {
                 break;
             }
-
             answer++;
         }
         return answer;
