@@ -3,24 +3,17 @@ package step17;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class No9461 {
 
-    public int getPadovanSequence(int n) {
-        int[] memo = new int[n + 1];
-        Arrays.fill(memo, -1);
+    public long getPadovanSequence(int n) {
+        long[] memo = new long[n + 1];
 
         for (int i = 1; i < memo.length; i++) {
-            if (memo[i] != -1) {
-                return memo[i];
-            }
-
             if (i <= 3) {
                 memo[i] = 1;
             } else {
-                memo[i] = getPadovanSequence(n - 2) + getPadovanSequence(n - 3);
-
+                memo[i] = memo[i - 2] + memo[i - 3];
             }
         }
 
@@ -35,7 +28,7 @@ public class No9461 {
 
         for (int i = 0; i < T; i++) {
             int num = Integer.parseInt(br.readLine());
-            int padovanSequence = no9461.getPadovanSequence(num);
+            long padovanSequence = no9461.getPadovanSequence(num);
             System.out.println(padovanSequence);
         }
     }
