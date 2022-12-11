@@ -8,12 +8,23 @@ import java.util.Arrays;
 public class No9461 {
 
     public int getPadovanSequence(int n) {
+        int[] memo = new int[n + 1];
+        Arrays.fill(memo, -1);
 
-        if (n <= 3) {
-            return 1;
+        for (int i = 1; i < memo.length; i++) {
+            if (memo[i] != -1) {
+                return memo[i];
+            }
+
+            if (i <= 3) {
+                memo[i] = 1;
+            } else {
+                memo[i] = getPadovanSequence(n - 2) + getPadovanSequence(n - 3);
+
+            }
         }
 
-        return getPadovanSequence(n - 2) + getPadovanSequence(n - 3);
+        return memo[n];
     }
 
     public static void main(String[] args) throws IOException {
