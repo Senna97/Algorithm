@@ -8,14 +8,14 @@ public class No12918 {
             String numbers = "1234567890";
 
             String[] split = s.split("");
-            int count = 0;
             for (String str : split) {
                 if (numbers.contains(str)) {
-                    count++;
+                    continue;
+                } else {
+                    return false;
                 }
             }
-
-            return count == s.length();
+            return true;
         }
         return false;
 
@@ -23,7 +23,7 @@ public class No12918 {
 
     public static void main(String[] args) {
         No12918 no12918 = new No12918();
-        boolean solution = no12918.solution("a000");
+        boolean solution = no12918.solution("1234");
         System.out.println(solution);
     }
 }
