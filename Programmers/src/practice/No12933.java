@@ -3,6 +3,7 @@ package practice;
 import java.util.Arrays;
 import java.util.Collections;
 
+// 프로그래머스 > 연습문제 > 정수 내림차순으로 배치하기
 public class No12933 {
     public long solution(long n) {
         long answer = 0;

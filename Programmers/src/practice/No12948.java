@@ -1,5 +1,6 @@
 package practice;
 
+// 프로그래머스 > 연습문제 > 핸드폰 번호 가리기
 public class No12948 {
 
     public String solution(String phone_number) {

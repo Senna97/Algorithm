@@ -1,5 +1,6 @@
 package practice;
 
+// 프로그래머스 > 연습문제 > 정수 제곱근 판별
 public class No12934 {
 
     public long solution(long n) {
