@@ -2,11 +2,10 @@ package monthlycodechallengeseason1;
 
 import java.util.Stack;
 
-// 코딩테스트 연습 > 월간 코드 챌린지 시즌1 > 3진법 뒤집기
+// 프로그래머스 > 월간 코드 챌린지 시즌1 > 3진법 뒤집기
 public class No68935 {
 
     public int solution(int n) {
-        int answer = 0;
 
         int num = 0;
         while (true) {
@@ -28,6 +27,7 @@ public class No68935 {
             }
         }
 
+        int answer = 0;
         for (int i = num; i >= 0; i--) {
             answer += stack.pop() * Math.pow(3, i);
         }
