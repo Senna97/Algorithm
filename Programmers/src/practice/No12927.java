@@ -20,6 +20,7 @@ public class No12927 {
                 sortWorks[i] = works[i];
             }
             Arrays.sort(sortWorks, Collections.reverseOrder());
+
             int index = 0;
             while (n > 0) {
                 if ((index < 2 && sortWorks[index] >= sortWorks[index + 1]) || index == 2) {
