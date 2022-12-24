@@ -1,30 +1,25 @@
 package tipstown2017;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 // 프로그래머스 > 2017 팁스타운 > 짝지어 제거하기
 public class No12973 {
 
     public int solution(String s) {
 
-        String[] split = s.split("");
-        List<String> list = new ArrayList<>(List.of(split));
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
 
-        int index = 0;
-        while (list.size() != 0 && index < list.size() - 1) {
-
-            if (list.get(index).equals(list.get(index + 1))) {
-                list.remove(index);
-                list.remove(index);
-                index = 0;
-
+            if (stack.isEmpty()) {
+                stack.push(s.charAt(i));
+            } else if (stack.peek() == s.charAt(i)) {
+                stack.pop();
             } else {
-                index++;
+                stack.push(s.charAt(i));
             }
         }
 
-        if (list.size() == 0) {
+        if (stack.isEmpty()) {
             return 1;
         } else {
             return 0;
