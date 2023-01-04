@@ -7,20 +7,28 @@ public class No12940 {
 
     public int[] solution(int n, int m) {
 
-        int[] answer = new int[2];
+        int[] answer = new int[]{n, m};
+        Arrays.sort(answer);
 
-        if (n > m) {
-            while (n > m) {
-                n -= m;
-            }
+        int min = answer[0];
+        int max = answer[1];
 
-        } else if (n < m) {
-            while (n < m) {
-                answer[0] = n - m;
+        for (int i = min; i >= 1; i--) {
+            if (min % i == 0 && max % i == 0) {
+                answer[0] = i;
+                break;
             }
-        } else {
-            answer[0] = n;
-            answer[1] = n;
+        }
+
+        int i = 2;
+        while (true) {
+            if (max % min == 0) {
+                answer[1] = max;
+                break;
+            } else {
+                max = max / (i - 1) * i;
+                i++;
+            }
         }
 
         return answer;
@@ -30,7 +38,7 @@ public class No12940 {
         No12940 no12940 = new No12940();
         int[] solution1 = no12940.solution(3, 12);
         System.out.println(Arrays.toString(solution1));
-        int[] solution2 = no12940.solution(2, 5);
+        int[] solution2 = no12940.solution(7, 11);
         System.out.println(Arrays.toString(solution2));
     }
 }
