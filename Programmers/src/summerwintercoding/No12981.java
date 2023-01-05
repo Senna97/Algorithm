@@ -8,31 +8,31 @@ import java.util.Set;
 public class No12981 {
 
     public int[] solution(int n, String[] words) {
-
         int[] answer = new int[2];
 
         Set<String> set = new HashSet<>();
-        int i = 0;
-        while (i < words.length) {
-            if (i == words.length - 1) {
+        set.add(words[0]);
+
+        for (int i = 1; i < words.length; i++) {
+            if (words[i - 1].charAt(words[i - 1].length() - 1) == words[i].charAt(0)) {
                 set.add(words[i]);
-            } else if (words[i].charAt(words[i].length() - 1) == words[i + 1].charAt(0)) {
-                set.add(words[i]);
+            } else {
+                answer[0] = (i + 1) % n;
+                answer[1] = i / n + 1;
+                if (answer[0] == 0) {
+                    answer[0] = n;
+                }
+                break;
             }
 
-            if (set.size() == words.length) {
-                answer[0] = 0;
-                answer[1] = 0;
-            } else {
-                if ((i + 1) % n == 0) {
+            if (set.size() != i + 1) {
+                answer[0] = (i + 1) % n;
+                answer[1] = i / n + 1;
+                if (answer[0] == 0) {
                     answer[0] = n;
-                    answer[1] = (i + 1) / n;
-                } else {
-                    answer[0] = (i + 1) % n;
-                    answer[1] = (i + 1) / n;
                 }
+                break;
             }
-            i++;
         }
 
         return answer;
@@ -40,7 +40,9 @@ public class No12981 {
 
     public static void main(String[] args) {
         No12981 no12981 = new No12981();
-        int[] solution = no12981.solution(2, new String[]{"hello", "one", "even", "never", "now", "world", "draw"});
-        System.out.println(Arrays.toString(solution));
+        int[] solution1 = no12981.solution(3, new String[]{"tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"});
+        System.out.println(Arrays.toString(solution1));
+        int[] solution2 = no12981.solution(2, new String[]{"ac", "ca", "ac", "ac"});
+        System.out.println(Arrays.toString(solution2));
     }
 }
