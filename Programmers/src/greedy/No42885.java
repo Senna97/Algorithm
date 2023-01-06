@@ -1,43 +1,38 @@
 package greedy;
 
-import java.util.Arrays;
+import java.util.*;
 
 // 프로그래머스 > 탐욕법(Greedy) > 구명보트
 public class No42885 {
 
     public int solution(int[] people, int limit) {
-        int originLimit = limit;
+        int answer = 0;
+
         Arrays.sort(people);
+        Deque<Integer> deque = new ArrayDeque<>();
+        for (int person : people) {
+            deque.addLast(person);
+        }
 
-        if (people[0] * 2 > limit) {
-            return people.length;
-        } else {
-            int count = 0;
-            int index = 0;
-            while (index < people.length) {
-
-                if (limit >= people[index]) {
-                    limit -= people[index];
-                    index++;
-                } else {
-                    limit = originLimit;
-                    count++;
-                }
-            }
-
-            if (people[people.length - 1] > limit) {
-                return count + 1;
+        while (deque.size() > 0) {
+            if (deque.getFirst() + deque.getLast() <= limit) {
+                answer++;
+                deque.pollFirst();
+                deque.pollLast();
             } else {
-                return count;
+                answer++;
+                deque.pollLast();
             }
         }
+
+        return answer;
     }
 
     public static void main(String[] args) {
         No42885 no42885 = new No42885();
-        int solution1 = no42885.solution(new int[]{40, 40, 40, 40, 40, 40}, 240);
+        int solution1 = no42885.solution(new int[]{30, 40, 50, 60}, 100);
         System.out.println(solution1);
-        int solution2 = no42885.solution(new int[]{70, 80, 50}, 100);
+        int solution2 = no42885.solution(new int[]{40, 40, 40, 40, 40, 40}, 240);
         System.out.println(solution2);
     }
 }
