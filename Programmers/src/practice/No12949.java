@@ -9,7 +9,9 @@ public class No12949 {
         int[][] answer = new int[arr1.length][arr2[0].length];
 
         // i*j X j*k = i*k
-        // 
+        // index1 = i만큼
+        // index2 = k만큼
+        // 더할 원소의 개수는 j만큼
 
         // 3*2 X 2*2 = 3*2
 //        int index = 0;
