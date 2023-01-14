@@ -6,37 +6,16 @@ import java.util.Arrays;
 public class No12949 {
 
     public int[][] solution(int[][] arr1, int[][] arr2) {
+
         int[][] answer = new int[arr1.length][arr2[0].length];
 
         // i*j X j*k = i*k
-        // index1 = i만큼
-        // index2 = k만큼
-        // 더할 원소의 개수는 j만큼
-
-        // 3*2 X 2*2 = 3*2
-//        int index = 0;
-//        while (index < answer.length) {
-//            answer[index][0] = arr1[index][0] * arr2[0][0] + arr1[index][1] * arr2[1][0];
-//            answer[index][1] = arr1[index][0] * arr2[0][1] + arr1[index][1] * arr2[1][1];
-//            index++;
-//        }
-
-        // 3*3 X 3*3 = 3*3
-//        int index = 0;
-//        while (index < answer.length) {
-//            answer[index][0] = arr1[index][0] * arr2[0][0] + arr1[index][1] * arr2[1][0] + arr1[index][2] * arr2[2][0];
-//            answer[index][1] = arr1[index][0] * arr2[0][1] + arr1[index][1] * arr2[1][1] + arr1[index][2] * arr2[2][1];
-//            answer[index][2] = arr1[index][0] * arr2[0][2] + arr1[index][1] * arr2[1][2] + arr1[index][2] * arr2[2][2];
-//            index++;
-//        }
-
-        // 2*2 X 2*3 = 2*3
-        int index = 0;
-        while (index < answer.length) {
-            answer[index][0] = arr1[index][0] * arr2[0][0] + arr1[index][1] * arr2[1][0];
-            answer[index][1] = arr1[index][0] * arr2[0][1] + arr1[index][1] * arr2[1][1];
-            answer[index][2] = arr1[index][0] * arr2[0][2] + arr1[index][1] * arr2[1][2];
-            index++;
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr2[0].length; j++) {
+                for (int k = 0; k < arr1[0].length; k++) {
+                    answer[i][j] += arr1[i][k] * arr2[k][j];
+                }
+            }
         }
 
         return answer;
