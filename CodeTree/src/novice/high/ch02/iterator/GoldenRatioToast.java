@@ -1,4 +1,4 @@
-package ch02.iterator;
+package novice.high.ch02.iterator;
 
 import java.util.LinkedList;
 import java.util.ListIterator;

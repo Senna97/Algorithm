@@ -1,4 +1,4 @@
-package ch02.inkedlist;
+package novice.high.ch02.inkedlist;
 
 import java.util.LinkedList;
 import java.util.Scanner;
