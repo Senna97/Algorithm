@@ -4,8 +4,17 @@ package practice;
 public class No131705 {
 
     public int solution(int[] number) {
-
         int answer = 0;
+
+        int count = 1;
+        for (int i = number.length - 2; i <= number.length; i++) {
+            count *= i;
+        }
+        int[] sums = new int[count / (3 * 2)];
+
+        int i = 0;
+        int j = 1;
+        int k = 2;
 
 
 
