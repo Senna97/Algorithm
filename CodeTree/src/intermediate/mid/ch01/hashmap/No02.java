@@ -20,24 +20,19 @@ public class No02 {
         String[] elementsArr = elements.split(" ");
 
         for (int i = 0; i < n; i++) {
-            hashMap.put(i, Integer.valueOf(elementsArr[i]));
+            hashMap.put(Integer.valueOf(elementsArr[i]), hashMap.getOrDefault(Integer.valueOf(elementsArr[i]), 0) + 1);
         }
 
         String finds = br.readLine();
         String[] findsArr = finds.split(" ");
 
-        int[] counts = new int[m];
-
         for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (hashMap.get(j) == Integer.parseInt(findsArr[i])) {
-                    counts[i]++;
-                }
-            }
-        }
 
-        for (int count : counts) {
-            System.out.print(count + " ");
+            if (hashMap.get(Integer.parseInt(findsArr[i])) == null) {
+                System.out.print(0 + " ");
+            } else {
+                System.out.print(hashMap.get(Integer.parseInt(findsArr[i])) + " ");
+            }
         }
     }
 }
