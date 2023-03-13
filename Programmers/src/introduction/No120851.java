@@ -7,9 +7,7 @@ public class No120851 {
         int answer = 0;
 
         for (int i = 0; i < my_string.length(); i++) {
-            if ((my_string.charAt(i) >= 'a' && my_string.charAt(i) <= 'z') || (my_string.charAt(i) >= 'A' && my_string.charAt(i) <= 'Z')) {
-                continue;
-            } else {
+            if (!(my_string.charAt(i) >= 'a' && my_string.charAt(i) <= 'z') && !(my_string.charAt(i) >= 'A' && my_string.charAt(i) <= 'Z')) {
                 answer += Integer.parseInt(String.valueOf(my_string.charAt(i)));
             }
         }
