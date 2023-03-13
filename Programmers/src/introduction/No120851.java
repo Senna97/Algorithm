@@ -5,8 +5,15 @@ public class No120851 {
 
     public int solution(String my_string) {
         int answer = 0;
-        int i = Integer.parseInt(my_string);
-        System.out.println(i);
+
+        for (int i = 0; i < my_string.length(); i++) {
+            if ((my_string.charAt(i) >= 'a' && my_string.charAt(i) <= 'z') || (my_string.charAt(i) >= 'A' && my_string.charAt(i) <= 'Z')) {
+                continue;
+            } else {
+                answer += Integer.parseInt(String.valueOf(my_string.charAt(i)));
+            }
+        }
+
         return answer;
     }
 
