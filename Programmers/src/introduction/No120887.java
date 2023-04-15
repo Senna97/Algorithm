@@ -1,28 +1,17 @@
 package introduction;
 
-import java.util.ArrayList;
-import java.util.List;
-
 // 프로그래머스 > 코딩테스트 입문 > k의 개수
 public class No120887 {
 
     public int solution(int i, int j, int k) {
         int answer = 0;
 
-        List<String> list = new ArrayList<>();
         for (int l = i; l <= j; l++) {
-            list.add(String.valueOf(l));
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for (String str : list) {
-            sb.append(str);
-        }
-
-        for (int l = 0; l < sb.length(); l++) {
-            char c = sb.toString().charAt(l);
-            if (Character.toString(c).equals(String.valueOf(k))) {
-                answer++;
+            for (int m = 0; m < String.valueOf(l).length(); m++) {
+                char c = String.valueOf(l).charAt(m);
+                if (Character.toString(c).equals(String.valueOf(k))) {
+                    answer++;
+                }
             }
         }
 
