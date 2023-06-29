@@ -5,9 +5,9 @@ public class No181939 {
 
     public int solution(int a, int b) {
 
-        String sb1 = String.valueOf(a) + String.valueOf(b);
+        String sb1 = a + String.valueOf(b);
 
-        String sb2 = String.valueOf(b) + String.valueOf(a);
+        String sb2 = b + String.valueOf(a);
 
         return Math.max(Integer.parseInt(sb1), Integer.parseInt(sb2));
 
