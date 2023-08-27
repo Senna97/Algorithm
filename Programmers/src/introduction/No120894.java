@@ -1,6 +1,6 @@
 package introduction;
 
-// 프로그래머스 > 코딩테스트 입문 > 잘라서 배열로 저장하기
+// 프로그래머스 > 코딩테스트 입문 > 영어가 싫어요
 public class No120894 {
 
     public long solution(String numbers) {
