@@ -6,17 +6,22 @@ public class No131705 {
     public int solution(int[] number) {
         int answer = 0;
 
-        int count = 1;
-        for (int i = number.length - 2; i <= number.length; i++) {
-            count *= i;
+        for (int i = 0; i < number.length - 2; i++) {
+            int first = number[i];
+
+            for (int j = i + 1; j < number.length - 1; j++) {
+                int second = number[j];
+
+                for (int k = j + 1; k < number.length; k++) {
+                    int third = number[k];
+                    int sum = first + second + third;
+
+                    if (sum == 0) {
+                        answer++;
+                    }
+                }
+            }
         }
-        int[] sums = new int[count / (3 * 2)];
-
-        int i = 0;
-        int j = 1;
-        int k = 2;
-
-
 
         return answer;
     }
